@@ -1,0 +1,94 @@
+.background{
+    -fx-background-color: #fbbc5e;
+    
+}
+.plantillaBoton{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 20px;
+    -fx-text-fill: #fff;
+    -fx-font-family: Arial;
+    -fx-alignment: CENTER_LEFT;
+}
+.plantillaBoton:hover{
+    -fx-background-color: #d4bc9c;
+    -fx-background-radius: 20px;
+}
+.plantillaSalir{
+    -fx-background-color: #5c4c44;
+    -fx-cursor: hand;
+    -fx-background-radius: 50%;
+}
+.plantillaSalir:hover{
+    -fx-background-color: #8a6d53;
+}
+.panePlantilla{
+    -fx-background-radius: 0px 20px 20px 0px;
+}
+.sombra{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8,0,0,0);
+}
+.panetabla{
+    -fx-background-color: #b29474;
+    -fx-background-radius: 8px;
+}
+.table-view{
+    -fx-background-color: #dcd7d0;
+    -fx-background-radius: 8px;
+    -fx-border-color: linear-gradient(to top right, #3c2c21, #93773e);
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+.table-view .table-column{
+    -fx-alignment: center;
+}
+.table-view .column-header-background{
+    -fx-background-color: #5c4c44;
+    -fx-background-radius: 8px 8px 0px 0px;
+    -fx-background-insets: 0 0 0 0;
+}
+.table-view .column-header, .filter{
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+}
+.table-view .column-header .label{
+    -fx-text-fill: #fff;
+    -fx-font-family: Arial;
+}
+.anchorpanePlantilla{
+    -fx-background-color: #cbbb9b;
+}
+
+.backgroundVertical{
+     -fx-background-radius: 0px 20px 20px 0px;
+     -fx-background-color: #8a6d53;
+}
+.paneLateral{
+    -fx-background-color: #5c4c44;
+}
+.titulo{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 20px;
+    -fx-text-fill: #fff;
+    -fx-font-family: Arial;
+    -fx-alignment: CENTER_LEFT;
+}
+.titulo:hover{
+    -fx-background-color: #d4bc9c;
+    -fx-background-radius: 0 20 20 0;
+}
+.titulo:focused > .title{
+    -fx-background-color: #b29474;
+    -fx-background-radius: 20 20 20 20;
+}
+.titulo .title .arrow-button .arrow {
+    -fx-background-color: transparent;
+}
+.titulo > .content{
+    -fx-background-color: #5c4c44;
+    -fx-border-color: transparent;
+}
+.titulo .title{
+    -fx-background-color: transparent;
+}

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="900.0" styleClass="anchorpanePlantilla" stylesheets="@../resource/TonysKinal.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.yerickaguilar.controller.PresupuestoController">
+   <children>
+      <Pane prefHeight="630.0" prefWidth="210.0" style="-fx-background-color: #b29474;" stylesheets="@../resource/TonysKinal.css">
+         <children>
+            <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="30.0" layoutY="206.0" text="Presupuesto" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="22.0" />
+               </font>
+            </Label>
+            <Separator layoutX="5.0" layoutY="255.0" prefWidth="200.0" />
+            <Button fx:id="btnAgregar" layoutX="15.0" layoutY="278.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="plantillaBoton" stylesheets="@../resource/TonysKinal.css" text="Agregar" textAlignment="RIGHT">
+               <graphic>
+                  <ImageView fx:id="imgAgregar" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/agregar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnReporte" layoutX="16.0" layoutY="459.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="plantillaBoton" stylesheets="@../resource/TonysKinal.css" text="Reporte" textAlignment="RIGHT">
+               <graphic>
+                  <ImageView fx:id="imgReporte" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/listar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEditar" layoutX="16.0" layoutY="392.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="plantillaBoton" stylesheets="@../resource/TonysKinal.css" text="Editar" textAlignment="RIGHT">
+               <graphic>
+                  <ImageView fx:id="imgEditar" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/editar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEliminar" layoutX="16.0" layoutY="332.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="plantillaBoton" stylesheets="@../resource/TonysKinal.css" text="Eliminar" textAlignment="RIGHT">
+               <graphic>
+                  <ImageView fx:id="imgEliminar" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/borrar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnRegresar" layoutX="11.0" layoutY="563.0" mnemonicParsing="false" onAction="#menuPrincipal" prefHeight="60.0" prefWidth="13.0" styleClass="plantillaSalir" stylesheets="@../resource/TonysKinal.css">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="panePlantilla" />
+            <String fx:value="sombra" />
+         </styleClass>
+      </Pane>
+      <Pane layoutX="224.0" prefHeight="423.0" prefWidth="627.0" stylesheets="@../resource/TonysKinal.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <styleClass>
+            <String fx:value="anchorpanePlantilla" />
+            <String fx:value="panetabla" />
+            <String fx:value="sombra" />
+         </styleClass>
+         <children>
+            <Pane layoutX="14.0" layoutY="14.0" prefHeight="208.0" prefWidth="634.0" stylesheets="@../resource/TonysKinal.css">
+               <styleClass>
+                  <String fx:value="panetabla" />
+                  <String fx:value="sombra" />
+               </styleClass>
+               <children>
+                  <GridPane fx:id="grpFecha" layoutX="7.0" prefHeight="208.0" prefWidth="615.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="191.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="87.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="55.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="162.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="128.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="113.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="95.0" minHeight="0.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                      <RowConstraints maxHeight="136.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="lblCodigoProducto" text="Código Presupuesto" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCodigoProducto1" text="Fecha Solicitud" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCodigoProducto2" text="Cantidad Presupuesto" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCodigoPresupuesto" editable="false" prefHeight="23.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtCantidadPresupuesto" prefHeight="23.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="lblCodigoProducto11" text="Códigdo Empresa" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cmbCodigoEmpresa" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="25.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+            <TableView fx:id="tblPresupuestos" layoutX="14.0" layoutY="236.0" onMouseClicked="#seleccionarElemento" prefHeight="352.0" prefWidth="634.0" styleClass="table-column" stylesheets="@../resource/TonysKinal.css">
+              <columns>
+                <TableColumn fx:id="colCodigoPresupuesto" prefWidth="157.75" resizable="false" text="Código Presupuesto" />
+                  <TableColumn fx:id="colFechaSolicitud" prefWidth="157.75" resizable="false" text="Fecha Solicitud" />
+                  <TableColumn fx:id="colCantidadPresupuesto" prefWidth="157.75" resizable="false" text="Cantidad Presupuesto" />
+                  <TableColumn fx:id="colCodigoEmpresa" prefWidth="157.75" resizable="false" text="Código Empresa" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

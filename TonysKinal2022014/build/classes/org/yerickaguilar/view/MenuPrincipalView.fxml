@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="770.0" stylesheets="@../resource/TonysKinal.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.yerickaguilar.controller.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="975.0" fitWidth="611.0" layoutX="80.0" layoutY="-153.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@../image/FondoMenuPricipal.jpg" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="580.0" prefWidth="78.0" style="-fx-background-color: #5c4c44;" />
+      <BorderPane prefHeight="580.0" prefWidth="770.0">
+         <left>
+            <AnchorPane fx:id="paneLateral" prefHeight="522.0" prefWidth="234.0" styleClass="paneLateral" stylesheets="@../resource/TonysKinal.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Accordion layoutX="-1.0" prefWidth="239.0">
+                    <panes>
+                      <TitledPane styleClass="titulo" stylesheets="@../resource/TonysKinal.css" text="Módulos">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ventanaEmpresa" text="Empresas" />
+                                    <Button layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onAction="#ventanaProducto" text="Productos" />
+                                    <Button fx:id="btnServicios" layoutX="14.0" layoutY="135.0" mnemonicParsing="false" onAction="#ventanaServicio" prefHeight="37.0" prefWidth="120.0" text="Servicios" />
+                                    <Button layoutX="14.0" layoutY="194.0" mnemonicParsing="false" text="TipoPlato" />
+                                    <Button layoutX="14.0" layoutY="252.0" mnemonicParsing="false" text="TipoEmpleado" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
+                                 <image>
+                                    <Image url="@../image/modulo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                      </TitledPane>
+                      <TitledPane styleClass="titulo" stylesheets="@../resource/TonysKinal.css" text="Tablas Has">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Productos has Platos" />
+                                 </children></AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane styleClass="titulo" stylesheets="@../resource/TonysKinal.css" text="?">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ventanaProgramador" text="Programador" />
+                                 </children></AnchorPane>
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+               </children></AnchorPane>
+         </left>
+         <top>
+            <AnchorPane prefHeight="58.0" prefWidth="770.0" style="-fx-background-color: #5c4c44;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnExpandir" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#expandirMenu" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <ImageView fx:id="imgExpandir" disable="true" fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/menu.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnContraer" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#contraerMenu" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <ImageView fx:id="imgContraer" disable="true" fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/izquierda.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+      <ImageView fitHeight="346.0" fitWidth="463.0" layoutX="330.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Logo.png" />
+         </image>
+      </ImageView>
+      <Button layoutY="519.0" mnemonicParsing="false" onAction="#ventanaLogin" prefHeight="60.0" prefWidth="13.0" styleClass="plantillaSalir" stylesheets="@../resource/TonysKinal.css">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
