@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    background: url(fondo.jpg) no-repeat center;
+    background-size: cover;
+    background-color: black;
+}
+
+header{
+    background: black;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1{
+    margin: 0;
+    color: white;
+}
+
+main{
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, .7);
+    /*display: flex;*/
+}
+
+a{
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+#botones{
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*gap: 7px;*/
+    text-align: center;
+}
+
+/*#botones button{
+    padding: 6px;
+}*/

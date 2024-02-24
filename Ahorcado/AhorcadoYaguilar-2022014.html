@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Ahorcado</title>
+</head>
+
+<body>
+    <header>
+        <h1>Ahorcado</h1>
+    </header>
+    <main>
+        <a>
+            <canvas id="canvas" width="200" height="300"></canvas>
+            <div style="margin-left: 230px;">
+                <p id="palabraAdivinar">
+                    <span id="resultado"></span>
+                </p>
+            </div>
+        </a>
+
+        <div id="botones">
+            <button id="letra_Q" onclick="click_letras(this), comparar('Q')" style="font-size: 20px">Q</button>
+            <button id="letra_W" onclick="click_letras(this), comparar('W')" style="font-size: 20px">W</button>
+            <button id="letra_E" onclick="click_letras(this), comparar('E')" style="font-size: 20px">E</button>
+            <button id="letra_R" onclick="click_letras(this), comparar('R')" style="font-size: 20px">R</button>
+            <button id="letra_T" onclick="click_letras(this), comparar('T')" style="font-size: 20px">T</button>
+            <button id="letra_Y" onclick="click_letras(this), comparar('Y')" style="font-size: 20px">Y</button>
+            <button id="letra_U" onclick="click_letras(this), comparar('U')" style="font-size: 20px">U</button>
+            <button id="letra_I" onclick="click_letras(this), comparar('I')" style="font-size: 20px">I</button>
+            <button id="letra_O" onclick="click_letras(this), comparar('O')" style="font-size: 20px">O</button>
+            <button id="letra_P" onclick="click_letras(this), comparar('P')" style="font-size: 20px">P</button>
+            <br>
+            <br>
+            <button id="letra_A" onclick="click_letras(this), comparar('A')" style="font-size: 20px">A</button>
+            <button id="letra_S" onclick="click_letras(this), comparar('S')" style="font-size: 20px">S</button>
+            <button id="letra_D" onclick="click_letras(this), comparar('D')" style="font-size: 20px">D</button>
+            <button id="letra_F" onclick="click_letras(this), comparar('F')" style="font-size: 20px">F</button>
+            <button id="letra_G" onclick="click_letras(this), comparar('G')" style="font-size: 20px">G</button>
+            <button id="letra_H" onclick="click_letras(this), comparar('H')" style="font-size: 20px">H</button>
+            <button id="letra_J" onclick="click_letras(this), comparar('J')" style="font-size: 20px">J</button>
+            <button id="letra_K" onclick="click_letras(this), comparar('K')" style="font-size: 20px">K</button>
+            <button id="letra_L" onclick="click_letras(this), comparar('L')" style="font-size: 20px">L</button>
+            <button id="letra_Ñ" onclick="click_letras(this), comparar('Ñ')" style="font-size: 20px">Ñ</button>
+            <br>
+            <br>
+            <button id="letra_Z" onclick="click_letras(this), comparar('Z')" style="font-size: 20px">Z</button>
+            <button id="letra_X" onclick="click_letras(this), comparar('X')" style="font-size: 20px">X</button>
+            <button id="letra_C" onclick="click_letras(this), comparar('C')" style="font-size: 20px">C</button>
+            <button id="letra_V" onclick="click_letras(this), comparar('V')" style="font-size: 20px">V</button>
+            <button id="letra_B" onclick="click_letras(this), comparar('B')" style="font-size: 20px">B</button>
+            <button id="letra_N" onclick="click_letras(this), comparar('N')" style="font-size: 20px">N</button>
+            <button id="letra_M" onclick="click_letras(this), comparar('M')" style="font-size: 20px">M</button>
+        </div>
+    </main>
+
+
+    <script>
+        var punto = document.getElementById("canvas");
+        var p = punto.getContext("2d");
+        p.lineWidth = 3;
+        var res = "";
+        var procesado;
+        var oportunidades = 7;
+
+        //Funcion Random (del 0 a numeroIngresado-1)
+        function Random(max) {
+            return Math.floor(Math.random() * max);
+        }
+        //Banco de Palabras (Array)
+        let banco = ["Banana", "Pera", "Manzana", "Letra", "Palabra", "Nada"];
+        //Escoger una palabra al azar y guardar su longitud
+        let palabra = banco[Random(banco.length)];
+        //iprimir"_ " segun la longitud de la palabra
+        for (let i = 0; i < palabra.length; i++) {
+            res += "_ ";
+        }
+        console.log(res);
+        console.log(palabra.toUpperCase());
+
+        //Funcion para verificar letras
+        //Mostrar el Progreso
+        var resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = "<a style='font-size: 50px; color: black'>" + res + "</a><br><br>";
+
+        function comparar(letra) {
+            letra = letra.toUpperCase();
+            var letraEncontrada = false;
+            for (let i = 0; i < palabra.length; i++) {
+                if (palabra[i].toUpperCase() === letra) {
+                    //Reemplazar el "_" por la letra presionada
+                    res = res.substring(0, i * 2) + letra + res.substring(i * 2 + 1);
+                    letraEncontrada = true;
+                }
+            }
+            if (!letraEncontrada) {
+                oportunidades--;
+                console.log(oportunidades);
+                dibujarCuerpo();
+            }
+
+            //Se usó método replace() junto con Regex
+            /*
+                \s: selecciona espacios vacíos
+                 +: Sirve para tomar más de un espacio vacío
+                 g: Sirve para repetir el proceso a lo largo del String
+            */
+            procesado = res.replace(/\s+/g, '');
+
+            if (procesado === palabra.toUpperCase()) {
+                ganar();
+            } else if (oportunidades === 0) {
+                perder();
+            }
+
+            function dibujarCuerpo() {
+                switch (oportunidades) {
+                    case 6:
+                        console.log(procesado);
+                        console.log(palabra.toUpperCase());
+                        //Cabeza
+                        p.beginPath();
+                        p.arc(100, 80, 40, 0, 2 * Math.PI);
+                        p.stroke();
+                        break;
+                    case 5:
+                        //Torzo
+                        p.moveTo(100, 120);
+                        p.lineTo(100, 200);
+                        p.stroke();
+                        break;
+                    case 4:
+                        //Brazo Izq.
+                        p.moveTo(100, 160);
+                        p.lineTo(40, 100);
+                        p.stroke();
+                        break;
+                    case 3:
+                        //Brazo Der.
+                        p.moveTo(100, 160);
+                        p.lineTo(160, 100);
+                        p.stroke();
+                        break;
+                    case 2:
+                        //Pierna Izq.
+                        p.moveTo(100, 200);
+                        p.lineTo(60, 270);
+                        p.stroke();
+                        break;
+                    case 1:
+                        //Pierna Der.
+                        p.moveTo(100, 200);
+                        p.lineTo(140, 270);
+                        p.stroke();
+                        break
+                    case 0:
+                        //Cara
+                        //Ojo Izq.
+                        p.moveTo(70, 70);
+                        p.lineTo(90, 90);
+                        p.stroke();
+                        p.moveTo(90, 70)
+                        p.lineTo(70, 90);
+                        p.stroke();
+                        //Ojo Der.
+                        p.moveTo(130, 70)
+                        p.lineTo(110, 90);
+                        p.stroke();
+                        p.moveTo(110, 70)
+                        p.lineTo(130, 90);
+                        p.stroke();
+                        break;
+                }
+            }
+
+            function ganar() {
+                console.log("Ganaste!!!");
+                document.write("<body bgcolor='#c6e2e9'>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<center>")
+                document.write("<a style='font-size: 50px;'>Haz Ganado !!!</a>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<button onclick='location.reload();' style='background-color: #9bfab0; width: 200px; heigth: 40px; font-size: 40px;'>Volver a Jugar</button>");
+                document.write("</center>")
+
+            }
+
+            function perder() {
+                console.log("Perdiste :(")
+                document.write("<body bgcolor='#C23B22'>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<center>")
+                document.write("<a style='font-size: 50px;'>Haz Perdido :(</a>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<br>");
+                document.write("<button onclick='location.reload();' style='background-color: #9bfab0; width: 200px; heigth: 40px; font-size: 40px;'>Volver a Jugar</button>");
+                document.write("</center>")
+            }
+
+            //Mostrar el Progreso
+            var resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = "<a style='font-size: 50px; color: black'>" + res + "</a><br><br>";
+        }
+
+        //Funcion para Deshabilitar Letras
+        function click_letras(boton) {
+            var contenido = boton.textContent;
+            console.log(contenido);
+            boton.disabled = true;
+        }
+
+        //Usar teclado
+        document.addEventListener('keyup', function (event) {
+            var tecla = event.key;
+            if (event.key.match(/^[a-zA-Z]$/) && oportunidades > 0) {
+                comparar(event.key);
+            }
+        });
+
+        //Horca
+        p.moveTo(99, 9);
+        p.lineTo(99, 40);
+        p.moveTo(100, 10);
+        p.lineTo(10, 10);
+        p.moveTo(10, 10);
+        p.lineTo(10, 292);
+        p.moveTo(10, 290);
+        p.lineTo(200, 290);
+        p.stroke();
+    </script>
+</body>
+
+</html>
